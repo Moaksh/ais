@@ -8,6 +8,10 @@ import { Link } from "@nextui-org/link";
 import clsx from "clsx";
 import {HeartFilledIcon} from "@/components/icons";
 
+import src from "../app/assets/docs-right.png";
+import src_left from "././assets/docs-left.png";
+import Image from "next/image";
+
 export const metadata: Metadata = {
 	title: {
 		default: siteConfig.name,
@@ -40,11 +44,25 @@ export default function RootLayout({
 				)}
 			>
 				<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-					<div className="relative flex flex-col h-screen">
+					<div className="relative flex flex-col h-screen z-10">
 						<Navbar />
 						<main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
 							{children}
 						</main>
+						<div aria-hidden="true" className="fixed md:block opacity-70 -bottom-[40%] -left-[20%] z-0">
+							<Image
+								src={src_left}
+								 className="relative z-10 opacity-0 shadow-black/5 data-[loaded=true]:opacity-100 shadow-none transition-transform-opacity motion-reduce:transition-none !duration-300 rounded-large"
+								 alt="docs left background"
+								 data-loaded="true"/>
+							</div>
+						<div aria-hidden="true" className="fixed md:block opacity-70 -top-[80%] -right-[60%] 2xl:-top-[60%] 2xl:-right-[45%] z-0 rotate-12">
+							<Image
+								src={src}
+								className="relative z-10 opacity-0 shadow-black/5 data-[loaded=true]:opacity-100 shadow-none transition-transform-opacity motion-reduce:transition-none !duration-300 rounded-large"
+								alt="docs right background"
+								data-loaded="true" />
+						</div>
 						<footer className="w-full flex items-center justify-center py-3">
 								<span className="text-default-600 flex">Made with  <HeartFilledIcon className="text-danger" />  By AIS</span>
 						</footer>
