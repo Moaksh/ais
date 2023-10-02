@@ -8,9 +8,10 @@ import {
 	NavbarMenuItem,
 } from "@nextui-org/navbar";
 import { Button } from "@nextui-org/button";
-import { Kbd } from "@nextui-org/kbd";
 import { Link } from "@nextui-org/link";
 import { Input } from "@nextui-org/input";
+import Image from "next/image";
+
 
 import { link as linkStyles } from "@nextui-org/theme";
 
@@ -24,10 +25,10 @@ import {
 	GithubIcon,
 	DiscordIcon,
 	HeartFilledIcon,
-	SearchIcon,
+	SearchIcon, LinkedinIcon,
 } from "@/components/icons";
 
-import { Logo } from "@/components/icons";
+import src from "../app/assets/logo.png";
 
 export const Navbar = () => {
 	const searchInput = (
@@ -37,11 +38,7 @@ export const Navbar = () => {
 				inputWrapper: "bg-default-100",
 				input: "text-sm",
 			}}
-			endContent={
-				<Kbd className="hidden lg:inline-block" keys={["command"]}>
-					K
-				</Kbd>
-			}
+
 			labelPlacement="outside"
 			placeholder="Search..."
 			startContent={
@@ -56,8 +53,13 @@ export const Navbar = () => {
 			<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
 				<NavbarBrand as="li" className="gap-3 max-w-fit">
 					<NextLink className="flex justify-start items-center gap-1" href="/">
-						<Logo />
-						<p className="font-bold text-inherit">ACME</p>
+						<Image
+							src = {src}
+							width={60}
+							height={50}
+							className="object-contain"
+						/>
+						<p className="font-bold text-inherit">AIS</p>
 					</NextLink>
 				</NavbarBrand>
 				<ul className="hidden lg:flex gap-4 justify-start ml-2">
@@ -83,28 +85,31 @@ export const Navbar = () => {
 				justify="end"
 			>
 				<NavbarItem className="hidden sm:flex gap-2">
+					<Link isExternal href={siteConfig.links.linkedin} area-label={"Linkedin"}>
+						<LinkedinIcon className="text-default-500" />
+					</Link>
 					<Link isExternal href={siteConfig.links.twitter} aria-label="Twitter">
 						<TwitterIcon className="text-default-500" />
 					</Link>
 					<Link isExternal href={siteConfig.links.discord} aria-label="Discord">
 						<DiscordIcon className="text-default-500" />
 					</Link>
+
 					<Link isExternal href={siteConfig.links.github} aria-label="Github">
 						<GithubIcon className="text-default-500" />
 					</Link>
 					<ThemeSwitch />
 				</NavbarItem>
-				<NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
 				<NavbarItem className="hidden md:flex">
 					<Button
-            isExternal
+            			isExternal
 						as={Link}
 						className="text-sm font-normal text-default-600 bg-default-100"
 						href={siteConfig.links.sponsor}
 						startContent={<HeartFilledIcon className="text-danger" />}
 						variant="flat"
 					>
-						Sponsor
+						Learning Community
 					</Button>
 				</NavbarItem>
 			</NavbarContent>

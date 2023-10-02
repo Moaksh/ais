@@ -1,27 +1,7 @@
 import * as React from "react";
 import { IconSvgProps } from "@/types";
 
-export const Logo: React.FC<IconSvgProps> = ({
-	size = 36,
-	width,
-	height,
-	...props
-}) => (
-	<svg
-		fill="none"
-		height={size || height}
-		viewBox="0 0 32 32"
-		width={size || width}
-		{...props}
-	>
-		<path
-			clipRule="evenodd"
-			d="M17.6482 10.1305L15.8785 7.02583L7.02979 22.5499H10.5278L17.6482 10.1305ZM19.8798 14.0457L18.11 17.1983L19.394 19.4511H16.8453L15.1056 22.5499H24.7272L19.8798 14.0457Z"
-			fill="currentColor"
-			fillRule="evenodd"
-		/>
-	</svg>
-);
+
 
 export const DiscordIcon: React.FC<IconSvgProps> = ({
 	size = 24,
@@ -61,6 +41,24 @@ export const TwitterIcon: React.FC<IconSvgProps> = ({
 				d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 0 0 5.001-1.721 4.036 4.036 0 0 1-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 0 1-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 0 1-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 0 0 8.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 0 1 4.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 0 0 2.556-.973 4.02 4.02 0 0 1-1.771 2.22 8.073 8.073 0 0 0 2.319-.624 8.645 8.645 0 0 1-2.019 2.083z"
 				fill="currentColor"
 			/>
+		</svg>
+	);
+};
+export const LinkedinIcon: React.FC<IconSvgProps> = ({
+														 size = 24,
+														width,
+														height,
+														...props
+													}) => {
+	return (
+		<svg
+			height={size || height}
+			viewBox="0 0 24 24"
+			width={size || width}
+			xmlns="http://www.w3.org/2000/svg"
+			{...props}
+		>
+			<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill="currentColor"/>
 		</svg>
 	);
 };
